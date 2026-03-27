@@ -1,0 +1,21 @@
+PRODUCTDIR=%s /etc/ecmwf/nfs/dh1_home_a/ecm7338/obstat/cams_obstat/resatgg_expver1
+Catalogue on: mongodb://webdev:wRGB0oJP@bol-data-layer-index-green-000,bol-data-layer-index-green-001,bol-data-layer-index-green-002/catalogue-test?replicaSet=index&authSource=datasets
+Listing remote objects collection: product  ...
+hist_resatak_CH4_s5p
+hist_resatak_CH4_iasi
+hist_resatak_CH4_gosat
+hist_resatak_CH4_gosat2
+hist_resatak_co2_iasi
+hist_resatak_co2_gosat
+hov_resatak_CH4_s5p
+hov_resatak_CH4_iasi
+hov_resatak_CH4_gosat
+hov_resatak_CH4_gosat2
+hov_resatak_co2_iasi
+hov_resatak_co2_gosat
+map_resatak_CH4_s5p
+map_resatak_CH4_iasi
+map_resatak_CH4_gosat
+map_resatak_CH4_gosat2
+map_resatak_co2_iasi
+map_resatak_co2_gosat

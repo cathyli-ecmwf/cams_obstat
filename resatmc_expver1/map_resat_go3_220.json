@@ -1,0 +1,199 @@
+{
+    "access": [
+        "public"
+    ],
+    "activate": "now",
+    "application": "pgf",
+    "class": "time_series",
+    "description": "Time-averaged geographical mean for CAMS Ozone from GOME-2",
+    "eccharts": false,
+    "enabled": true,
+    "expire": {
+        "cycle": 2
+    },
+    "help": "map view",
+    "in_production": true,
+    "layers": [
+        {
+            "availability": {
+                "service": "availability"
+            },
+            "class": "netcdf",
+            "plot": {
+                "service": "plot_netcdf"
+            },
+            "retrieve": {
+                "data": {
+                    "expver": "$expver",
+                    "package": "obstat",
+                    "step": 0,
+                    "stream": "oper",
+                    "class": "ob",
+                    "domain": "g",
+                    "type": "an",
+                    "base_time": "$base_time",
+                    "label": "$label"
+                },
+                "service": "get_url"
+            },
+            "values": {
+                "expver": "0001",
+                "label": "map_from_resat_0001_DA_ozone_go3_003220_short",
+                "flag": "All",
+                "level": "1100.0_0.01hPa",
+                "data_type": "obs"
+            }
+        }
+    ],
+    "long_title": "Obstat stats map",
+    "name": "map_resat_go3_gome2",
+    "owner": "ecmwf",
+    "package": "cams_monitoring",
+    "opencharts": true,
+    "tags": {
+        "Category": [
+            "Satellite Data"
+        ],
+        "Data Stream": [
+            "Normal delivery"
+        ],
+        "Experiment": [
+            "CAMS"
+        ],
+        "Instrument": [
+            "GOME-2"
+        ],
+        "Parameter": [
+            "Ozone"
+        ],
+        "Component": [
+            "OBSTAT"
+        ]
+    },
+    "title": "Time-averaged geographical mean for CAMS Ozone from GOME-2",
+    "type": "product",
+    "example": "obs(time, stream, lat, lon, flag, surface, phase, scan, level)",
+    "variables": [
+        {
+            "name": "label",
+            "title": "Satellite",
+            "type": "choice",
+            "values": [
+                "map_from_resat_0001_DA_ozone_go3_003220_short",
+                "map_from_resat_0001_DA_ozone_go3_005220_short"
+            ],
+            "labels": [
+                "METOP-B",
+                "METOP-C"
+            ]
+        },
+        {
+            "name": "level",
+            "title": "Layer",
+            "type": "choice",
+            "values": [
+                "1100.0_0.01hPa"
+            ],
+            "labels": [
+                "Total column"
+            ]
+        },
+        {
+            "name": "flag",
+            "title": "Flag",
+            "type": "choice",
+            "values": [
+                "All",
+                "Used"
+            ],
+            "labels": [
+                "All",
+                "Used"
+            ]
+        },
+        {
+            "name": "data_type",
+            "title": "Data",
+            "type": "choice",
+            "values": [
+                "count",
+                "obs",
+                "fgdep",
+                "andep",
+                "bcor",
+                "fgdep_bcor",
+                "andep_bcor",
+                "obs_stdv",
+                "fgdep_stdv",
+                "andep_stdv"
+            ],
+            "labels": [
+                "Data count",
+                "obsvalue",
+                "OBS-FG",
+                "OBS-AN",
+                "Bias correction",
+                "OBS-FG (Uncorr)",
+                "OBS-AN (Uncorr)",
+                "Stdev (obsvalue)",
+                "Stdev (OBS-FG)",
+                "Stdev (OBS-AN)"
+            ]
+        }
+    ],
+    "viewport": {
+        "height": 600,
+        "width": 900
+    },
+    "thumbnail_original_size": true,
+    "widgets": [
+        "basic"
+    ],
+    "format": "png",
+    "inline_plot_structure": {
+        "variable_title": [
+            "STATISTICS FOR CAMS Ozone FROM $cplatform/$cinstrument",
+            "CHANNEL=$level (TIME STEP=$step HOURS)",
+            "$data_type.standard_name",
+            "Exp=$expver  DATA PERIOD= $first_time - $last_time",
+            "Min=$compute.min Max=$compute.max Mean=$compute.mean",
+            "Grid = $lat_inc x $lon_inc"
+        ],
+        "title_layout": {
+            "title_panel_height": "24",
+            "style": {
+                "text_colour": "black",
+                "text_font_size": "0.6"
+            }
+        },
+        "panel_layout": {
+            "rows": 1,
+            "columns": 1
+        },
+        "template": "template-map.json",
+        "page_structure": [
+            {
+                "netcdf": {
+                    "netcdf_value_variable": "$data_type"
+                },
+                "contour": {
+                    "contour": "off",
+                    "contour_level_count": "21",
+                    "contour_level_selection_type": "count",
+                    "contour_level_tolerance": "0",
+                    "contour_shade": "on",
+                    "contour_shade_cell_resolution": "100",
+                    "contour_shade_colour_method": "palette",
+                    "contour_shade_palette_name": "colorbrewer_Spectral_20",
+                    "contour_shade_technique": "cell_shading"
+                },
+                "map": {
+                    "legend": {
+                        "legend_text_format": "(f8.3)",
+                        "legend_label_frequency": "2"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,8 @@
+PRODUCTDIR=%s /etc/ecmwf/nfs/dh1_perm_a/majd/git/cams_obstat/resatmc_expver1
+Catalogue on: mongodb://webdev:wRGB0oJP@bol-data-layer-index-green-000,bol-data-layer-index-green-001,bol-data-layer-index-green-002/catalogue-test?replicaSet=index&authSource=datasets
+Listing remote objects collection: product  ...
+map_resat_go3_omps
+hov_resat_go3_omps
+hist_resat_go3_omps
+hist_resat_go3_gems
+hist_resat_go3_s5p

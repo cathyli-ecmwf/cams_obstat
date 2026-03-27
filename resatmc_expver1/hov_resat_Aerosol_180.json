@@ -1,0 +1,224 @@
+{
+    "access": [
+        "public"
+    ],
+    "activate": "now",
+    "application": "pgf",
+    "class": "time_series",
+    "description": "Hovmoeller diagram for AOD from SLSTR",
+    "eccharts": false,
+    "enabled": true,
+    "expire": {
+        "cycle": 2
+    },
+    "help": "Hovmoeller diagram",
+    "in_production": true,
+    "layers": [
+        {
+            "availability": {
+                "service": "availability"
+            },
+            "class": "netcdf",
+            "plot": {
+                "service": "plot_netcdf"
+            },
+            "retrieve": {
+                "data": {
+                    "expver": "$expver",
+                    "package": "obstat",
+                    "step": 0,
+                    "stream": "oper",
+                    "class": "ob",
+                    "domain": "g",
+                    "type": "an",
+                    "base_time": "$base_time",
+                    "label": "$label"
+                },
+                "service": "get_url"
+            },
+            "values": {
+                "expver": "0001",
+                "label": "hov_from_resat_0001_DA_ozone_Aerosol_180_short",
+                "satellite": "SENTINEL-3A",
+                "flag": "All",
+                "level": "1100.0_0.01hPa",
+                "period": "Last 2 months",
+                "data_type": "obs"
+            }
+        }
+    ],
+    "long_title": "Hovmoller",
+    "name": "hov_resat_aod_s3",
+    "thumbnail_original_size": true,
+    "owner": "ecmwf",
+    "package": "cams_monitoring",
+    "opencharts": true,
+    "tags": {
+        "Category": [
+            "Satellite Data"
+        ],
+        "Data Stream": [
+            "Normal delivery"
+        ],
+        "Experiment": [
+            "CAMS"
+        ],
+        "Instrument": [
+            "SLSTR"
+        ],
+        "Parameter": [
+            "Aerosol"
+        ],
+        "Component": [
+            "OBSTAT"
+        ]
+    },
+    "title": "Hovmoeller diagram for AOD from SLSTR",
+    "type": "product",
+    "variables": [
+        {
+            "name": "satellite",
+            "title": "Satellite",
+            "type": "choice",
+            "values": [
+                "SENTINEL-3A",
+                "SENTINEL-3B"
+            ],
+            "label": [
+                "Sentinel-3A",
+                "Sentinel-3B"
+            ]
+        },
+        {
+            "name": "level",
+            "title": "Layer",
+            "type": "choice",
+            "values": [
+                "1100.0_0.01hPa"
+            ],
+            "labels": [
+                "Total column"
+            ]
+        },
+        {
+            "name": "flag",
+            "title": "Flag",
+            "type": "choice",
+            "values": [
+                "All",
+                "Used"
+            ],
+            "labels": [
+                "All",
+                "Used"
+            ]
+        },
+        {
+            "name": "data_type",
+            "title": "Data",
+            "type": "choice",
+            "values": [
+                "count",
+                "obs",
+                "fgdep",
+                "andep",
+                "bcor",
+                "fgdep_bcor",
+                "andep_bcor",
+                "obs_stdv",
+                "fgdep_stdv",
+                "andep_stdv"
+            ],
+            "labels": [
+                "Data count",
+                "obsvalue",
+                "OBS-FG",
+                "OBS-AN",
+                "Bias correction",
+                "OBS-FG (Uncorr)",
+                "OBS-AN (Uncorr)",
+                "Stdev (obsvalue)",
+                "Stdev (OBS-FG)",
+                "Stdev (OBS-AN)"
+            ]
+        },
+        {
+            "name": "label",
+            "title": "Period",
+            "type": "choice",
+            "values": [
+                "hov_from_resat_0001_DA_ozone_Aerosol_180_short",
+                "hov_from_resat_0001_DA_ozone_Aerosol_180_medium",
+                "hov_from_resat_0001_DA_ozone_Aerosol_180_long"
+            ],
+            "labels": [
+                "Last 2 months",
+                "Last 12 months",
+                "Long timeseries"
+            ]
+        }
+    ],
+    "viewport": {
+        "height": 550,
+        "width": 850
+    },
+    "widgets": [
+        "basic"
+    ],
+    "format": "png",
+    "inline_plot_structure": {
+        "variable_title": [
+            "STATISTICS FOR CAMS AEROSOL FROM $satellite/SLSTR",
+            "CHANNEL=$level (TIME STEP=$step HOURS)",
+            "$data_type.standard_name",
+            "Exp=$expver  DATA PERIOD= $first_time - $last_time",
+            "Min=$compute.min Max=$compute.max Mean=$compute.mean"
+        ],
+        "title_layout": {
+            "title_panel_height": "24",
+            "style": {
+                "text_colour": "black",
+                "text_font_size": "0.6"
+            }
+        },
+        "panel_layout": {
+            "rows": 1,
+            "columns": 1
+        },
+        "xxxfixed_netcdf_dimension": {
+            "surface": "Sea"
+        },
+        "template": "template-hovmoller.json",
+        "page_structure": [
+            {
+                "netcdf": {
+                    "netcdf_value_variable": "$data_type",
+                    "netcdf_x_variable": "time",
+                    "netcdf_y_variable": "lat"
+                },
+                "contour": {
+                    "contour": "off",
+                    "contour_level_count": "21",
+                    "contour_level_selection_type": "count",
+                    "contour_level_tolerance": "0",
+                    "contour_shade": "on",
+                    "contour_shade_cell_resolution": "100",
+                    "contour_shade_colour_method": "palette",
+                    "contour_shade_palette_name": "colorbrewer_Spectral_20",
+                    "contour_shade_technique": "cell_shading"
+                },
+                "map": {
+                    "legend": {
+                        "legend_text_format": "(f8.3)",
+                        "legend_label_frequency": "2"
+                    },
+                    "cartesian": {
+                        "y_regular": {
+                            "subpage_y_automatic_reverse": "on"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
