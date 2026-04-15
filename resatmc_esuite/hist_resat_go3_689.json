@@ -1,234 +1,234 @@
 {
-    "access": [
-        "public"
+  "access": [
+    "public"
+  ],
+  "activate": "now",
+  "application": "pgf",
+  "class": "time_series",
+  "description": "Timeseries of statistics for Ozone from KOMPSAT-2B GEMS",
+  "eccharts": false,
+  "enabled": true,
+  "expire": {
+    "cycle": 2
+  },
+  "help": "Time series of area averages",
+  "thumbnail_original_size": true,
+  "in_production": true,
+  "layers": [
+    {
+      "availability": {
+        "service": "availability"
+      },
+      "class": "netcdf",
+      "plot": {
+        "service": "plot_netcdf"
+      },
+      "retrieve": {
+        "data": {
+          "expver": "$expver",
+          "package": "obstat",
+          "step": 0,
+          "stream": "oper",
+          "class": "ob",
+          "domain": "g",
+          "type": "an",
+          "base_time": "$base_time",
+          "label": "$label"
+        },
+        "service": "get_url"
+      },
+      "values": {
+        "expver": "0001",
+        "period": "Last 2 months",
+        "area": "Globe",
+        "satellite": "KOMPSAT-2B",
+        "flag": "All",
+        "level": "1100.0_0.01hPa",
+        "label": "hist_from_resat_0080_DA_ozone_go3_689_short"
+      }
+    }
+  ],
+  "long_title": "Time series of area averages",
+  "name": "hist_resat_go3_gems_esuite",
+  "owner": "ecmwf",
+  "package": "cams_monitoring_esuite",
+  "opencharts": true,
+  "tags": {
+    "Category": [
+      "Satellite Data"
     ],
-    "activate": "now",
-    "application": "pgf",
-    "class": "time_series",
-    "description": "Timeseries of statistics for Ozone from KOMPSAT-2B GEMS",
-    "eccharts": false,
-    "enabled": true,
-    "expire": {
-        "cycle": 2
+    "Data Stream": [
+      "Normal delivery"
+    ],
+    "Experiment": [
+      "CAMS"
+    ],
+    "Instrument": [
+      "GEMS"
+    ],
+    "Parameter": [
+      "Ozone"
+    ],
+    "Component": [
+      "OBSTAT"
+    ]
+  },
+  "title": "Timeseries of statistics for Ozone from KOMPSAT-2B GEMS",
+  "type": "product",
+  "variables": [
+    {
+      "name": "satellite",
+      "title": "Satellite",
+      "type": "choice",
+      "values": [
+        "KOMPSAT-2B"
+      ]
     },
-    "help": "Time series of area averages",
+    {
+      "name": "area",
+      "title": "Area",
+      "type": "choice",
+      "values": [
+        "Globe",
+        "North_Pole",
+        "NHem_Extra_Tropics",
+        "Tropics",
+        "SHem_Extra_Tropics",
+        "South_Pole"
+      ]
+    },
+    {
+      "name": "level",
+      "title": "Layer",
+      "type": "choice",
+      "values": [
+        "1100.0_0.01hPa"
+      ],
+      "labels": [
+        "Total column"
+      ]
+    },
+    {
+      "name": "flag",
+      "title": "Flag",
+      "type": "choice",
+      "values": [
+        "All",
+        "Used"
+      ],
+      "labels": [
+        "All",
+        "Used"
+      ]
+    },
+    {
+      "name": "label",
+      "title": "period",
+      "type": "choice",
+      "values": [
+        "hist_from_resat_0080_DA_ozone_go3_689_short",
+        "hist_from_resat_0080_DA_ozone_go3_689_medium",
+        "hist_from_resat_0080_DA_ozone_go3_689_long"
+      ],
+      "labels": [
+        "Last 2 months",
+        "Last 12 months",
+        "Long time series"
+      ]
+    }
+  ],
+  "viewport": {
+    "height": 900,
+    "width": 550
+  },
+  "widgets": [
+    "basic"
+  ],
+  "format": "png",
+  "inline_plot_structure": {
+    "variable_title": [
+      "STATISTICS FOR CAMS OZONE FROM $satellite/GEMS ($area)",
+      "CHANNEL=$level $flag DATA (TIME STEP=$step HOURS)",
+      "Area $areadef (Over All surfaces)",
+      "Exp=0080  LAST TIME WINDOW ($last_time)"
+    ],
+    "title_layout": {
+      "title_panel_height": "16",
+      "style": {
+        "text_colour": "black",
+        "text_font_size": "0.6"
+      }
+    },
+    "panel_layout": {
+      "rows": 4,
+      "columns": 1
+    },
+    "map": {
+      "legend": {
+        "legend_entry_text_width": "80.0",
+        "text_font_size": "0.45",
+        "legend_column_count": "2"
+      }
+    },
     "thumbnail_original_size": true,
-    "in_production": true,
-    "layers": [
-        {
-            "availability": {
-                "service": "availability"
-            },
-            "class": "netcdf",
-            "plot": {
-                "service": "plot_netcdf"
-            },
-            "retrieve": {
-                "data": {
-                    "expver": "$expver",
-                    "package": "obstat",
-                    "step": 0,
-                    "stream": "oper",
-                    "class": "ob",
-                    "domain": "g",
-                    "type": "an",
-                    "base_time": "$base_time",
-                    "label": "$label"
-                },
-                "service": "get_url"
-            },
-            "values": {
-                "expver": "0001",
-                "period": "Last 2 months",
-                "area": "Globe",
-                "satellite": "KOMPSAT-2B",
-                "flag": "All",
-                "level": "1100.0_0.01hPa",
-                "label": "hist_from_resat_0080_DA_ozone_go3_689_short"
-            }
-        }
-    ],
-    "long_title": "Time series of area averages",
-    "name": "hist_resat_go3_gems_esuite",
-    "owner": "ecmwf",
-    "package": "cams_monitoring_esuite",
-    "opencharts": true,
-    "tags": {
-        "Category": [
-            "Satellite Data"
-        ],
-        "Data Stream": [
-            "Normal delivery"
-        ],
-        "Experiment": [
-            "CAMS"
-        ],
-        "Instrument": [
-            "GEMS"
-        ],
-        "Parameter": [
-            "Ozone"
-        ],
-        "Component": [
-            "OBSTAT"
-        ]
-    },
-    "title": "Timeseries of statistics for Ozone from KOMPSAT-2B GEMS",
-    "type": "product",
-    "variables": [
-        {
-            "name": "satellite",
-            "title": "Satellite",
-            "type": "choice",
-            "values": [
-                "KOMPSAT-2B"
-            ]
+    "template": "template-histogram.json",
+    "page_structure": [
+      {
+        "graph": {
+          "colours": "RED,BLUE,RED,BLUE",
+          "styles": "SOLID, SOLID,DASH,DASH",
+          "titles": "OBS-AN,OBS-FG,OBS-AN(bcor),OBS-FG(bcor)",
+          "thickness": "2,3,2,3"
         },
-        {
-            "name": "area",
-            "title": "Area",
-            "type": "choice",
-            "values": [
-                "Globe",
-                "North_Pole",
-                "NHem_Extra_Tropics",
-                "Tropics",
-                "SHem_Extra_Tropics",
-                "South_Pole"
-            ]
-        },
-        {
-            "name": "level",
-            "title": "Layer",
-            "type": "choice",
-            "values": [
-                "1100.0_0.01hPa"
-            ],
-            "labels": [
-                "Total column"
-            ]
-        },
-        {
-            "name": "flag",
-            "title": "Flag",
-            "type": "choice",
-            "values": [
-                "All",
-                "Used"
-            ],
-            "labels": [
-                "All",
-                "Used"
-            ]
-        },
-        {
-            "name": "label",
-            "title": "period",
-            "type": "choice",
-            "values": [
-                "hist_from_resat_0080_DA_ozone_go3_689_short",
-                "hist_from_resat_0080_DA_ozone_go3_689_medium",
-                "hist_from_resat_0080_DA_ozone_go3_689_long"
-            ],
-            "labels": [
-                "Last 2 months",
-                "Last 12 months",
-                "Long time series"
-            ]
-        }
-    ],
-    "viewport": {
-        "height": 900,
-        "width": 550
-    },
-    "widgets": [
-        "basic"
-    ],
-    "format": "png",
-    "inline_plot_structure": {
-        "variable_title": [
-            "STATISTICS FOR CAMS OZONE FROM $satellite/GEMS ($area)",
-            "CHANNEL=$level $flag DATA (TIME STEP=$step HOURS)",
-            "Area $areadef (Over All surfaces)",
-            "Exp=$expver  LAST TIME WINDOW ($last_time)"
-        ],
-        "title_layout": {
-            "title_panel_height": "16",
-            "style": {
-                "text_colour": "black",
-                "text_font_size": "0.6"
-            }
-        },
-        "panel_layout": {
-            "rows": 4,
-            "columns": 1
+        "netcdf": {
+          "variables_y": "andep_bcor,fgdep_bcor,andep,fgdep"
         },
         "map": {
-            "legend": {
-                "legend_entry_text_width": "80.0",
-                "text_font_size": "0.45",
-                "legend_column_count": "2"
-            }
+          "legend": {
+            "legend_entry_text_width": "90.0",
+            "text_font_size": "0.45",
+            "legend_column_count": "4"
+          }
+        }
+      },
+      {
+        "graph": {
+          "colours": "BLUE, RED",
+          "styles": "SOLID, SOLID",
+          "titles": "stdv(OBS-FG), stdv(OBS-AN)"
         },
-        "thumbnail_original_size": true,
-        "template": "template-histogram.json",
-        "page_structure": [
-            {
-                "graph": {
-                    "colours": "RED,BLUE,RED,BLUE",
-                    "styles": "SOLID, SOLID,DASH,DASH",
-                    "titles": "OBS-AN,OBS-FG,OBS-AN(bcor),OBS-FG(bcor)",
-                    "thickness": "2,3,2,3"
-                },
-                "netcdf": {
-                    "variables_y": "andep_bcor,fgdep_bcor,andep,fgdep"
-                },
-                "map": {
-                    "legend": {
-                        "legend_entry_text_width": "90.0",
-                        "text_font_size": "0.45",
-                        "legend_column_count": "4"
-                    }
-                }
-            },
-            {
-                "graph": {
-                    "colours": "BLUE, RED",
-                    "styles": "SOLID, SOLID",
-                    "titles": "stdv(OBS-FG), stdv(OBS-AN)"
-                },
-                "netcdf": {
-                    "variables_y": "fgdep_stdv, andep_stdv"
-                },
-                "map": {
-                    "legend": {
-                        "legend_entry_text_width": "80.0",
-                        "text_font_size": "0.45",
-                        "legend_column_count": "2"
-                    }
-                }
-            },
-            {
-                "graph": {
-                    "colours": "GREEN, BLUE, RED",
-                    "styles": "SOLID, SOLID, SOLID",
-                    "titles": "obs, fg , an"
-                },
-                "netcdf": {
-                    "variables_y": "obs, fg, an"
-                }
-            },
-            {
-                "graph": {
-                    "colours": "MAGENTA, BLUE, KELLY_GREEN",
-                    "styles": "SOLID, DASH, DOT",
-                    "titles": "count, all, used",
-                    "thickness": "4,3,3"
-                },
-                "netcdf": {
-                    "variables_y": "count_displayed, count_all, count_used"
-                }
-            }
-        ]
-    }
+        "netcdf": {
+          "variables_y": "fgdep_stdv, andep_stdv"
+        },
+        "map": {
+          "legend": {
+            "legend_entry_text_width": "80.0",
+            "text_font_size": "0.45",
+            "legend_column_count": "2"
+          }
+        }
+      },
+      {
+        "graph": {
+          "colours": "GREEN, BLUE, RED",
+          "styles": "SOLID, SOLID, SOLID",
+          "titles": "obs, fg , an"
+        },
+        "netcdf": {
+          "variables_y": "obs, fg, an"
+        }
+      },
+      {
+        "graph": {
+          "colours": "MAGENTA, BLUE, KELLY_GREEN",
+          "styles": "SOLID, DASH, DOT",
+          "titles": "count, all, used",
+          "thickness": "4,3,3"
+        },
+        "netcdf": {
+          "variables_y": "count_displayed, count_all, count_used"
+        }
+      }
+    ]
+  }
 }

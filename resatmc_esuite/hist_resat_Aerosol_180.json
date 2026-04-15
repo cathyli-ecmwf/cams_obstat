@@ -155,7 +155,7 @@
             "STATISTICS FOR CAMS AEROSOL FROM $satellite/SLSTR ($area)",
             "CHANNEL=$level $flag DATA (TIME STEP=$step HOURS)",
             "Area $areadef (Over All surfaces)",
-            "Exp=$expver  LAST TIME WINDOW ($last_time)"
+            "Exp=0080  LAST TIME WINDOW ($last_time)"
         ],
         "title_layout": {
             "title_panel_height": "16",
