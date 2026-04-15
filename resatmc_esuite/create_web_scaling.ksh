@@ -85,7 +85,7 @@ do
   done
   echo ${list_ncfiles} $plots
   python3 ${OBSTAT_HOME}/scripts/create_web_scaling.py -i "${list_available_ncfile}" -j $inputjson -o $outputjson -m $json_type -t $margin ${update_json_only}
-  web-catalogue -s bol-prod -a push -p ${web_package} $outputjson
+  web-catalogue -s bol-test -a push -p ${web_package} $outputjson
   rm -f $outputjson
  fi
 done
